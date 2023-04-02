@@ -1,0 +1,78 @@
+.button1{
+    background-color: black;
+    text-align: center;
+    border: none;
+    /* transition: background-color 1s; */
+    cursor: pointer;
+    color: white;
+}
+h1{
+    color: lightsalmon;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.button1:hover{
+    border-color: black;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    font-weight: 100;
+    color: white;
+}
+li{
+    list-style-type: none;
+}
+
+#upper-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 10px;
+
+}
+#form{
+    margin-top: 150px;
+    margin-bottom: 200px;
+}
+
+.movie-card{
+    display: flex;
+    flex-direction: column;
+    padding-right: 16px;
+    padding-bottom: 16px;
+}
+
+#movies{
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+
+    grid-gap: 50px;
+}
+
+#movie-img{
+    width: 100%;
+}
+
+#movie-search{
+    width: 200px;
+    height: 20px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+#movie-button{
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    padding: 5px 5px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    border: 2px solid black;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#movie-button:hover{
+    opacity: 1;
+    background-color: green;
+}
