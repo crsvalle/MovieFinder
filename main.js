@@ -9,14 +9,18 @@ function nowPlaying(){
     
     fetch(urlNowPLaying).then(response => {return response.json()}).then(json=>{displayNowPlaying(json)})
 } 
+
 let displayNowPlaying = (json) =>{
 
     arrOfMovies = json.items
+
+    arrOfMovies.forEach((movie) => {
+        console.log(movie.id)
+    })
     
     movieFiller.innerHTML = arrOfMovies.map((movie) =>
         `<div id ='movie-card'>
-        <div>${movie.id}</div>
-        <a href="index_2.html" id='movie-img'><img src="https://imdb-api.com/API/ResizeImage?apikey=k_0esyzcfg&size=240x360&url=${movie.image}" alt ="movie-pic"></a>
+        <a href="index_2.html" onclick="getMovieId(${movie.id})" id='movie-img'><img src="https://imdb-api.com/API/ResizeImage?apikey=k_0esyzcfg&size=240x360&url=${movie.image}" alt ="movie-pic"></a>
         <li id='movie-info'>⭐️ ${movie.imDbRating}</li>
         <li id="movie-info">${movie.fullTitle}</li>
         </div>
@@ -62,10 +66,10 @@ let fill = (movies) => {
         movieImg.className = "movie-info"
 
         if (movie.image.length === 0){
-            movieImg.innerHTML = `<a href="index_2.html" id='movie-img'><img src="./pics/no-image.jpg" alt ="movie-pic"></a>`
+            movieImg.innerHTML = `<a href="index_2.html" id='movie-img'><img src="./pics/no-image.jpg" alt ="movie-pic" onlick='getMovieId((${movie.id}).toString())'></a>`
         }
         else{
-            movieImg.innerHTML = `<a href="index_2.html" id='movie-img'><img src="https://imdb-api.com/API/ResizeImage?apikey=k_0esyzcfg&size=240x360&url=${movie.image}" alt ="movie-pic"></a>`
+            movieImg.innerHTML = `<a href="index_2.html" id='movie-img'><img src="https://imdb-api.com/API/ResizeImage?apikey=k_0esyzcfg&size=240x360&url=${movie.image}" alt ="movie-pic" onlick='getMovieId(${movie.id})'></a>`
         }
 
         movieCard.append(movieImg)
@@ -86,5 +90,12 @@ let fill = (movies) => {
     });
 
 }
+
+
+const getMovieId = (movieId) => {
+    window.localStorage.setItem("movieId", String(movieId));
+}
+
+getMovieId('tt6710474')
 
 
