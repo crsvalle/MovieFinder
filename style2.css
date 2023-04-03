@@ -1,0 +1,56 @@
+#movie-header{
+    display: flex;
+}
+
+
+
+#movie-info-img{
+    width: 400px;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    align-items: center;
+    justify-content: center;
+}
+
+#movie-items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#movie-header{
+    margin-right: 40px;
+}
+
+#upper-box{
+    display: flex;
+    flex-direction: row;
+}
+
+#actor-img{
+    width: 100%;
+    justify-content: center;
+}
+
+#poster-info{
+    font-size: 18px;
+}
+
+#actor-card{
+    border-radius: 3px;
+    border: 0.02px solid grey;
+}
+
+#rating-year{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+#rating{
+    margin-left: auto;
+}

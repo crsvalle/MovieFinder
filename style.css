@@ -59,6 +59,7 @@ li{
     width: 100%;
 }
 
+
 #movie-search{
     width: 400px;
     height: 40px;
@@ -79,6 +80,18 @@ li{
 #movie-button:hover{
     opacity: 1;
     background-color: green;
+}
+
+
+
+
+#movie-info-item{
+    display: flex;
+    margin-bottom: 12px;
+}
+
+#movie-items{
+    
 }
 
 #movie-actors{

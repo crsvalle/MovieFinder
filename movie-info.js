@@ -1,12 +1,14 @@
 
 const movieId = window.localStorage.getItem('movieId')
 console.log(movieId)
+const key = 'k_0esyzcfg'
+
 
 const movieHeader = document.getElementById('movie-header')
 const movieItems = document.getElementById('movie-items')
 const movieActors = document.getElementById('movie-actors')
 
-movieURL = `https://imdb-api.com/en/API/Title/k_0esyzcfg/${movieId}/FullActor,Posters,Trailer,Ratings`
+movieURL = `https://imdb-api.com/en/API/Title/${key}/${movieId}/FullActor,Posters,Trailer,Ratings`
 
 fetch(movieURL)
 .then(response => {return response.json()})
@@ -17,33 +19,36 @@ const movieInfo = (json) => {
 
     movieHeader.innerHTML = 
     `<div>
-    <li id='movie-item'> ${json.fullTitle}</li>
-    <img src="${json.image}" alt ="movie-pic">
-    <li id='movie-item'> ${json.year} • ${json.runtimeStr} • ${json.contentRating} </li> 
-    <li id='movie-item'> ⭐️${json.imDbRating}/10 </li>
+    <h1 id='movie-info-title'> ${json.fullTitle}</h1>
+    <img id='movie-info-img'src="${json.image}" alt ="movie-pic">
+    <div id='rating-year'>
+        <p id='movie-info-item'> ${json.year} • ${json.runtimeStr} • ${json.contentRating} </p> 
+        <p id='rating'> ⭐️ ${json.imDbRating}/10 </p>
+    </div>
     </div>
     `
     movieItems.innerHTML =
     `<div>
-    <li>${json.awards}</li>
-    <p>${json.plot}</p>
-    <li>${json.genres}</li>
-    <li> Director: ${json.directors}></li>
-    <li> Writers: ${json.writers} </li>
-    <li> Stars: ${json.starList[0].name} ${json.starList[1].name} ${json.starList[2].name}</li>
+    <li id='poster-info'>${json.genres}</li>
+    <p id='poster-info'>${json.plot}</p>
+    <li id='poster-info'> Director: ${json.directors}</li>
+    <li id='poster-info' > Writers: ${json.writers} </li>
+    <li id='poster-info'> Stars: ${json.starList[0].name} ${json.starList[1].name} ${json.starList[2].name}</li>
     <div id="budget">
-        <li>${json.boxOffice.budget}</li>
-        <li>${json.boxOffice.grossUSA}</li>
-        <li>${json.boxOffice.cumulativeWorldwideGross}</li>
+        <p>Budget: ${json.boxOffice.budget}</p>
+        <p>Box Office USA: ${json.boxOffice.grossUSA}</p>
+        <p>Box Office Worldwide: ${json.boxOffice.cumulativeWorldwideGross}</p>
     </div>
+    <li>${json.awards}</li>
     `
-    listOfActors = json.actorList.slice(11)
-    movieActors.innerHTML =listOfActors.map((actor) => `
-    <div id='actor-card>
-    <img id='actor-img src'${actor.image}' alt="actor-pic">
-    <li id="actor-info">${actor.name} as ${actor.asCharacter}></li>
+    listOfActors = json.actorList.slice(0, 12)
+    movieActors.innerHTML =listOfActors.map((actor) => 
+    `
+    <div id='actor-card'>
+    <img id='actor-img'src="${actor.image}" alt="actor-pic">
+    <li id="actor-info"><strong>${actor.name}</strong> <br>${actor.asCharacter}</li>
     </div>
-    `)
+    `).join('')
 
     
 }

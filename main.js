@@ -3,9 +3,12 @@ const movieInput = document.getElementById("movie-search")
 const movieFiller = document.getElementById("movies")
 const placehold = document.getElementById('place-holder-movie')
 
+const key = "k_0esyzcfg"
+
+
 nowPlaying()
 function nowPlaying(){
-    let urlNowPLaying = `https://imdb-api.com/en/API/InTheaters/k_0esyzcfg`
+    let urlNowPLaying = `https://imdb-api.com/en/API/InTheaters/${key}`
     
     fetch(urlNowPLaying).then(response => {return response.json()}).then(json=>{displayNowPlaying(json)})
 } 
@@ -13,14 +16,10 @@ function nowPlaying(){
 let displayNowPlaying = (json) =>{
 
     arrOfMovies = json.items
-
-    arrOfMovies.forEach((movie) => {
-        console.log(movie.id)
-    })
     
     movieFiller.innerHTML = arrOfMovies.map((movie) =>
         `<div id ='movie-card'>
-        <a href="index_2.html" onclick="getMovieId(${movie.id})" id='movie-img'><img src="https://imdb-api.com/API/ResizeImage?apikey=k_0esyzcfg&size=240x360&url=${movie.image}" alt ="movie-pic"></a>
+        <a href="index_2.html" onclick="getMovieId('${movie.id}');"><img id='movie-img' src="${movie.image}" alt ="movie-pic"></a>
         <li id='movie-info'>⭐️ ${movie.imDbRating}</li>
         <li id="movie-info">${movie.fullTitle}</li>
         </div>
@@ -36,7 +35,7 @@ formFiller.addEventListener("submit", (event) =>{
     let movie = movieInput.value
     movieInput.value = "" 
 
-    let movieSearch = `https://imdb-api.com/en/API/SearchMovie/k_0esyzcfg/${movie}`
+    let movieSearch = `https://imdb-api.com/en/API/SearchMovie/${key}/${movie}`
 
     fetch(movieSearch)
     .then(response => {return response.json()})
@@ -66,10 +65,10 @@ let fill = (movies) => {
         movieImg.className = "movie-info"
 
         if (movie.image.length === 0){
-            movieImg.innerHTML = `<a href="index_2.html" id='movie-img'><img src="./pics/no-image.jpg" alt ="movie-pic" onlick='getMovieId((${movie.id}).toString())'></a>`
+            movieImg.innerHTML = `<a href="index_2.html" onlick='getMovieId((${movie.id}'><img id='movie-img' src="./pics/no-image.jpg" alt ="movie-pic"></a>`
         }
         else{
-            movieImg.innerHTML = `<a href="index_2.html" id='movie-img'><img src="https://imdb-api.com/API/ResizeImage?apikey=k_0esyzcfg&size=240x360&url=${movie.image}" alt ="movie-pic" onlick='getMovieId(${movie.id})'></a>`
+            movieImg.innerHTML = `<a href="index_2.html" onlick='getMovieId((${movie.id}'><img id='movie-img' src="${movie.image}" alt ="movie-pic"></a>`
         }
 
         movieCard.append(movieImg)
@@ -91,11 +90,6 @@ let fill = (movies) => {
 
 }
 
-
 const getMovieId = (movieId) => {
     window.localStorage.setItem("movieId", String(movieId));
 }
-
-getMovieId('tt6710474')
-
-
