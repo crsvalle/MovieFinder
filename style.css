@@ -1,17 +1,18 @@
-h1{
-    color: lightsalmon;
-    font-family: 'Courier New', Courier, monospace;
+#logo{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
-
 
 body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    background-color: black;
+    background-color: #f3f3f3;
     font-weight: 100;
-    color: white;
+    color: black;
 }
+
+
 li{
     list-style-type: none;
 }
@@ -22,12 +23,14 @@ li{
     justify-content: center;
     align-content: center;
     margin-bottom: 10px;
+    width: 100%;
+}
 
-}
 #form{
-    margin-top: 150px;
-    margin-bottom: 200px;
+    padding-top: 10px;
+    margin-bottom: 25px;
 }
+
 
 .movie-card{
     display: flex;
@@ -46,17 +49,33 @@ li{
 #movie-img{
     width: 100%;
     height: 100%;
+    margin-bottom: 10px;
+    border: 1px solid grey;
+    border-radius: 25px;
+    /* box-shadow: 4px 4px 5px grey; */
+
+}
+#movie-img:hover{
+    box-shadow: 4px 4px 5px grey;
+    transform: scale(1.02);
+    opacity: 0.8;
 }
 
 
 #movie-search{
-    width: 400px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 450px;
     height: 40px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 20px;
 
+
 }
 #movie-button{
+    margin-top: 6px;
+    margin-left: 10px;
+    position: absolute;
     background-color: black;
     color: white;
     border-radius: 8px;
@@ -71,15 +90,9 @@ li{
     background-color: green;
 }
 
-
-
 #movie-info-item{
     display: flex;
     margin-bottom: 12px;
-}
-
-#movie-items{
-    
 }
 
 #movie-actors{
@@ -92,10 +105,10 @@ li{
     cursor: pointer;
     border: 1px solid grey;
     background-color: transparent;
-    height: 50px;
-    width: 200px;
-    color: white;
-    font-size: 1.5em;
+    height: 45px;
+    width: 170px;
+    color: black;
+    font-size: 1.2em;
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
     margin-top: 10px;
     margin-right: 32px;
@@ -107,11 +120,103 @@ li{
 }
 
 .button:active{
-    color:grey
+    color:grey;
+    transform: scale(1.02);
 }
 
 #button-options{
     display: flex;
     flex-direction: row;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.movie-title{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+ 
+#logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 15px;
+}
+
+@media screen and (min-width: 600px) and (max-width:750px) {
+    #movie-search{
+        width: 400px;
+    }
+}
+
+@media screen and (min-width: 350px) and (max-width: 600px){
+    body{
+        width: 90%;
+    }
+
+    #movie-search{
+        width: 250px;
+    }
+
+    #movie-img{
+        width: 100%;
+        height: 100%;
+    }
+
+    #movies{
+        grid-gap: 100px;
+        grid-column-gap: 70px;
+        font-size: 16px;
+        grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+        margin-bottom: 100px;
+    }
+
+    .movie-title{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .button{
+        height: 40px;
+        width: 150px;
+        font-size: 1em;
+        margin-right: 10px;
+    }
+
+
+}
+
+@media screen  and (max-width: 350px) {
+    
+    body{
+        width: 80%;
+    }
+
+    #movie-search{
+        width: 75%;
+    }
+
+    #movie-img{
+        width: 80%;
+        height: 90%;
+    }
+
+    #movies{
+        grid-gap: 50px;
+        grid-column-gap: 70px;
+        font-size: 16px;
+        grid-template-columns:repeat(auto-fit, minmax(115px, 1fr))
+    }
+
+    .movie-title{
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .button{
+        height: 30px;
+        width: 110px;
+        font-size: 0.8em;
+        margin-right: 10px;
+    }
+}
+

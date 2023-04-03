@@ -5,7 +5,7 @@ const placehold = document.getElementById('place-holder-movie')
 const home = document.getElementById('home')
 const soon = document.getElementById('coming-soon')
 
-// const key = "k_0esyzcfg"
+const key = "k_0esyzcfg"
 
 
 home.addEventListener('click', (event)=>{
@@ -38,7 +38,7 @@ let displayNowPlaying = (json) =>{
         `<div id ='movie-card'>
         <a href="index_2.html" onclick="getMovieId('${movie.id}');"><img id='movie-img' src="${movie.image}" alt ="movie-pic"></a>
         <li id='movie-info'>⭐️ ${movie.imDbRating}</li>
-        <li id="movie-info">${movie.fullTitle}</li>
+        <li id="movie-info" class='movie-title'>${movie.title}</li>
         </div>
         `
     ).join('');
@@ -52,7 +52,7 @@ let displayComingSoon =(json)=>{
     movieFiller.innerHTML = arrOfMovies.map((movie) =>
         `<div id ='movie-card'>
         <a href="index_2.html" onclick="getMovieId('${movie.id}');"><img id='movie-img' src="${movie.image}" alt ="movie-pic"></a>
-        <li id="movie-info">${movie.fullTitle}</li>
+        <li id="movie-info" class='movie-title'>${movie.title}</li>
         </div>
         `
     ).join('');
@@ -69,13 +69,13 @@ formFiller.addEventListener("submit", (event) =>{
     fetch(movieSearch)
     .then(response => {return response.json()})
     .then (json=> {
-        fill(json)})
+        fill(json, movie)})
     .catch()
 })
 
 
-let fill = (movies) => {
-    placehold.innerHTML =""
+let fill = (movies, movieName) => {
+    placehold.innerHTML =`Searched for: ${movieName}`
     movieFiller.innerHTML=''
     arrOfMovies = movies.results 
     arrOfMovies.forEach(movie => {
@@ -100,6 +100,7 @@ let fill = (movies) => {
 
         let title = document.createElement("p")
         title.setAttribute('id', 'movie-info')
+        title.className = "movie-title"
         title.innerHTML = `${movie.title} (${yearDesc})`
         movieCard.append(title)
 

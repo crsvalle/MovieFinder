@@ -2,12 +2,21 @@
     display: flex;
 }
 
+#movie-info-title{
+    font-size: 30px;
+    align-items: center;
+    color: black;
+    text-align: center;
+    font-family:'Noto Sans', sans-serif;
+}
 
 #movie-info-img{
     width: 400px;
     height: 600px;
     justify-content: center;
     align-items: center;
+    border: 1px solid white;
+    border-width: thin;
 }
 
 h1{
@@ -19,10 +28,12 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    margin-left: 10px;
 }
 
 #movie-header{
-    margin-right: 40px;
+    margin-right: 10px;
 }
 
 #upper-box{
@@ -42,7 +53,7 @@ h1{
 
 #actor-card{
     border-radius: 3px;
-    border: 0.02px solid grey;
+    border: 1px solid grey;
 }
 
 #rating-year{
@@ -58,7 +69,6 @@ h1{
 #movie-actors{
     display: grid;
     grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
-
     grid-gap: 20px;
     grid-row-gap: 80px;
 }
@@ -67,19 +77,98 @@ h1{
     cursor: pointer;
     border: 1px solid grey;
     background-color: transparent;
-    height: 50px;
-    width: 200px;
-    color: white;
+    height: 40px;
+    width: 150px;
+    color: black;
     font-size: 1.5em;
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
 }
 
-.button:hover,
-.button:focus{
-    background-color: #fff;
-    color: #333;
+.button:hover{
+    opacity: 0.5;
 }
 
 .button:active{
-    color:grey
+    color:grey;
+    opacity: 0.1;
+    transform: scale(1.02)
+}
+
+.home-button{
+    display: flex;
+}
+
+@media screen and (min-width: 500px) and (max-width: 700px){
+    #upper-box{
+        flex-direction: column;
+    }
+}
+
+
+@media screen and (min-width: 375px) and (max-width: 500px){
+    #upper-box{
+        flex-direction: column;
+    }
+
+    #poster-info{
+        font-size: 16px;
+    }
+
+    #movie-items{
+        margin-bottom: 20px;
+        font-size: 12px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #movie-info-title{
+        font-size: 25px;
+        text-align: center;
+    }
+
+    #movie-info-img{
+        width: 280px;
+        height: 400px;
+    }
+
+
+    .button{
+        height: 40px;
+        width: 120px;
+    }
+
+    #actor-card{
+        height: 90%;
+        width: 80%;
+    }
+
+    #movie-actors{
+        grid-template-columns:repeat(auto-fit, minmax(125px, 1fr))
+    }
+    
+}
+
+
+@media screen  and (max-width: 375px) {
+
+    .button{
+        height: 35px;
+        width: 100px;
+    }
+    #movie-actors{
+        grid-template-columns:repeat(auto-fit, minmax(100px, 1fr));
+        grid-gap:20px;
+        grid-column-gap: 10px;
+        margin-bottom: 50px;
+    }
+
+    #actor-card{
+        height: 90%;
+        width: 80%;
+    }
+
+    #movie-info-img{
+        width: 250px;
+        height: 350px;
+    }
 }
