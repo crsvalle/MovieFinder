@@ -9,6 +9,7 @@ A website that allows you to look at movie information, also shows you what is c
  - [General Info](#General-Info)
  - [How it works](#How-it-works)
  - [Future Features](#Future-Features)
+ - [Problems] (#Problems)
 
 
 ## General Info
