@@ -14,12 +14,34 @@ fetch(movieURL)
 .then(response => {return response.json()})
 .then(json=>{movieInfo(json)});
 
-
 const movieInfo = (json) => {
 
+    if(json.plot === null){
+        movieHeader.innerHTML = 
+        `<div>
+        <h1 id='movie-info-title'> ${json.title}</h1>
+        <img id='movie-info-img'src="${json.image}" alt ="movie-pic">
+        <div id='rating-year'>
+            <p id='movie-info-item'> ${json.releaseState}</p> 
+        </div>
+        </div>
+        `
+        movieItems.innerHTML =
+        `<div>
+        <li id='poster-info'>${json.genres}</li>
+        <p id='poster-info'>This seems to be empty</p>
+        <li id='poster-info'> Director: Not Known Yet</li>
+        <li id='poster-info'> Stars: ${json.starList[0].name} ${json.starList[1].name} ${json.starList[2].name} ${json.starList[3].name}</li>
+        </div>
+        `
+        movieActors.innerHTML = 
+        `<h2>No actors are listed yet.</h2>`
+    }
+
+    else{
     movieHeader.innerHTML = 
     `<div>
-    <h1 id='movie-info-title'> ${json.fullTitle}</h1>
+    <h1 id='movie-info-title'> ${json.title}</h1>
     <img id='movie-info-img'src="${json.image}" alt ="movie-pic">
     <div id='rating-year'>
         <p id='movie-info-item'> ${json.year} • ${json.runtimeStr} • ${json.contentRating} </p> 
@@ -50,7 +72,7 @@ const movieInfo = (json) => {
     </div>
     `).join('')
 
-    
+    }
 }
 
 

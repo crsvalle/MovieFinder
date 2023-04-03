@@ -1,20 +1,8 @@
-.button1{
-    background-color: black;
-    text-align: center;
-    border: none;
-    /* transition: background-color 1s; */
-    cursor: pointer;
-    color: white;
-   
-}
 h1{
     color: lightsalmon;
     font-family: 'Courier New', Courier, monospace;
 }
 
-.button1:hover{
-    border-color: black;
-}
 
 body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -44,19 +32,20 @@ li{
 .movie-card{
     display: flex;
     flex-direction: column;
-    padding-right: 16px;
-    padding-bottom: 16px;
+
 }
 
 #movies{
     display: grid;
     grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
 
-    grid-gap: 50px;
+    grid-gap: 60px;
+    grid-row-gap: 100px;
 }
 
 #movie-img{
     width: 100%;
+    height: 100%;
 }
 
 
@@ -84,7 +73,6 @@ li{
 
 
 
-
 #movie-info-item{
     display: flex;
     margin-bottom: 12px;
@@ -98,4 +86,32 @@ li{
     display: grid;
     grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 20px;
+}
+
+.button{
+    cursor: pointer;
+    border: 1px solid grey;
+    background-color: transparent;
+    height: 50px;
+    width: 200px;
+    color: white;
+    font-size: 1.5em;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    margin-top: 10px;
+    margin-right: 32px;
+    transition: opacity 0.5s, color 0.15s; 
+}
+
+.button:hover{
+    opacity: 0.8;
+}
+
+.button:active{
+    color:grey
+}
+
+#button-options{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
 }

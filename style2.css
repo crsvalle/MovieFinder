@@ -3,7 +3,6 @@
 }
 
 
-
 #movie-info-img{
     width: 400px;
     height: 600px;
@@ -33,7 +32,8 @@ h1{
 
 #actor-img{
     width: 100%;
-    justify-content: center;
+    height: 100%;
+    grid-gap: 60px;
 }
 
 #poster-info{
@@ -53,4 +53,33 @@ h1{
 
 #rating{
     margin-left: auto;
+}
+
+#movie-actors{
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+
+    grid-gap: 20px;
+    grid-row-gap: 80px;
+}
+
+.button{
+    cursor: pointer;
+    border: 1px solid grey;
+    background-color: transparent;
+    height: 50px;
+    width: 200px;
+    color: white;
+    font-size: 1.5em;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+
+.button:hover,
+.button:focus{
+    background-color: #fff;
+    color: #333;
+}
+
+.button:active{
+    color:grey
 }

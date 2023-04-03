@@ -14,14 +14,17 @@
 
     <section id="upper-box" style="background-image: url(./pics/cinema-banner.jpeg);">
         <form id="form">
-        
             <input type="text" class='search-bar'id="movie-search" placeholder="Search for a movie" required >
-            <button class="search-bar" id="movie-button" src="./pics/magnifying-glass.png">Search</button>
+            <button class="search-bar" id="movie-button">Search</button>
         </form>
     </section>
+    <div id="button-options">
+        <button class="button" id="home">Now Playing</button>
+        <button class="button" id="coming-soon">Coming Soon</button>
+    </div>
 
     <section id="movies-display">
-        <h2 id="place-holder-movie">Now Playing</h2>
+        <h2 id="place-holder-movie"></h2>
         <div id="movies"></div>
         
     </section>
